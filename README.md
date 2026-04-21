@@ -1,7 +1,7 @@
 # 🏸 Badminton Tournament Organizer
 
 👤 Author
-Jenil Raval - https://www.linkedin.com/in/jenilravalatwork/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B4QbSJ4M5RSy5Oqyh5AwJmA%3D%3D
+Jenil Raval - https://www.linkedin.com/in/jenilravalatwork
 
 A Python + MySQL project to manage badminton tournaments, quick matches, player stats, and game organization.
 
