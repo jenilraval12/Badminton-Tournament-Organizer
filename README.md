@@ -26,6 +26,11 @@ See folders:
 - modes/
 - tournament/
 
+## 📈 Future Improvements
+- Minor Code Bugs Fixes
+- Fix GUI, CLI Statistics
+- Fix SQL Schema
+
 ## ⚙️ Setup Instructions
 
 ```bash
