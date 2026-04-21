@@ -1,0 +1,103 @@
+drop database badminton_tourney_organiser;
+
+create database badminton_tourney_organiser;
+
+use database badminton_tourney_organiser;
+
+-- Create users table---
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id)
+);
+
+-- Create quick_game table---
+CREATE TABLE quick_game (
+    game_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    player1_name VARCHAR(50),
+    player2_name VARCHAR(50),
+    player1_score INT,
+    player2_score INT,
+    winner VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (game_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- Create quick_match table---
+CREATE TABLE quick_match (
+    match_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    player1_name VARCHAR(255),
+    player2_name VARCHAR(255),
+    plr1_score_game1 INT,
+    plr2_score_game1 INT,
+    plr1_score_game2 INT,
+    plr2_score_game2 INT,
+    plr1_score_game3 INT,
+    plr2_score_game3 INT,
+    game_winner VARCHAR(255),
+    match_winner VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (match_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- Create tournament table---
+CREATE TABLE tournament (
+    tourney_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    tourney_name VARCHAR(255) NOT NULL UNIQUE,
+    no_of_categories INT NOT NULL,
+    name_of_categories TEXT NOT NULL,
+    knockout_point INT NOT NULL,
+    quarter_point INT NOT NULL,
+    semi_final_point INT NOT NULL,
+    final_point INT NOT NULL,
+    status VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tourney_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- Create tournament_players table---
+CREATE TABLE tournament_players (
+    ID INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    tourney_id INT NOT NULL,
+    player_name VARCHAR(255),
+    player1_name VARCHAR(255),
+    player2_name VARCHAR(255),
+    mobile_number VARCHAR(20),
+    category VARCHAR(1000) NOT NULL,
+    mode VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (tourney_id) REFERENCES tournament(tourney_id) ON DELETE CASCADE
+);
+
+-- Create tournament_matches table---
+CREATE TABLE tournament_matches (
+    match_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    tourney_id INT NOT NULL,
+    player1_name VARCHAR(255),
+    player2_name VARCHAR(255),
+    team_A_players VARCHAR(255),
+    team_B_players VARCHAR(255),
+    plr1_score_game1 INT,
+    plr2_score_game1 INT,
+    team_A_score_game1 INT,
+    team_B_score_game1 INT,
+    category VARCHAR(1000) NOT NULL,
+    mode VARCHAR(255) NOT NULL,
+    round_name VARCHAR(255),
+    match_status VARCHAR(255),
+    winner VARCHAR(255),
+    PRIMARY KEY (match_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (tourney_id) REFERENCES tournament(tourney_id) ON DELETE CASCADE
+);
