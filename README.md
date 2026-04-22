@@ -1,11 +1,15 @@
 # 🏸 Badminton Tournament Organizer
 
-👤 Author
-Jenil Raval - https://www.linkedin.com/in/jenilravalatwork
-
 A Python + MySQL project to manage badminton tournaments, quick matches, player stats, and game organization.
 
-## 🚀 Features
+## 🙋🏻‍♂️ Author - Jenil Raval
+- 🔗 LinkedIn: https://www.linkedin.com/in/jenilravalatwork
+- 🔗 GitHub: https://github.com/jenilraval12 
+
+---
+
+## ✨ Features
+
 - User Signup / Signin
 - Start Tournament
 - Continue Tournament
@@ -14,22 +18,36 @@ A Python + MySQL project to manage badminton tournaments, quick matches, player 
 - Match Statistics
 - MySQL Database Integration
 
-## 🛠 Tech Stack
+---
+
+## 🛠️ Tech Stack
+
 - Python
 - MySQL
 - VS Code
 
-## 📂 Project Structure
-See folders:
-- auth/
-- database/
-- modes/
-- tournament/
+---
+
+## 📁 Project Structure
+
+Project folders:
+
+- `auth/`
+- `database/`
+- `modes/`
+- `tournament/`
+
+---
 
 ## 📈 Future Improvements
-- Minor Code Bugs Fixes
-- Fix GUI, CLI Statistics
-- Fix SQL Schema
+
+- Minor code bug fixes
+- Improve GUI / CLI statistics
+- Optimize SQL schema
+- Better UI experience
+- Export reports & match history
+
+---
 
 ## ⚙️ Setup Instructions
 
@@ -37,3 +55,4 @@ See folders:
 git clone <repo-link>
 cd badminton-tournament-organizer
 pip install -r requirements.txt
+python main.py
